@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo&family=Libre+Franklin:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Libre Franklin', sans-serif;
+}
+
+body {
+    margin: 8px auto;
+    width: 90%;
+    background-color: lightblue;
+    line-height: 1.4;
+}
+
+h1, h2 {
+    font-family: 'Heebo', sans-serif;
+    margin-top: 20px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.sitefooter {
+    height: 3.5em;
+    display: flex;
+    background-color: #ffa459;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.siteheader {
+    display: flex;
+    padding: 10px;
+}
+
+.navbar {
+    height: 50px;
+}
+
+.navbar a {
+    display: flex;
+    float: left;
+    padding: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+.toppage {
+    background-image: linear-gradient(orange, lightblue);
+}
+
+.reporttext {
+    margin-bottom: 20px;
+}

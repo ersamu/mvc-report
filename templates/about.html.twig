@@ -1,0 +1,21 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Om{% endblock %}
+
+{% block content %}
+<h1>Om</h1>
+
+<img src="img/programming2.png" width="400px" alt="Programmering i PHP & JavaScript">
+
+<p><a href="{{ absolute_url("img/programming2.png") }}">Visa bilden</a></p>
+
+<h2>Om kursen</h2>
+<p>Kursen <b> Objektorienterade webbteknologier,</b> a.k.a. mvc, fokuserar på objektorienterade
+programmeringstekniker i programmeringsspråket PHP. Klassiska objektorienterade konstruktioner
+hanteras tillsammans med objektorienterad programmering i webbaserat ramverk tillsammans med
+databaser samt enhetstestning.
+</p>
+
+<a href="https://github.com/dbwebb-se/mvc">Kursens Git-repo</a>
+
+{% endblock %}

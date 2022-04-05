@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="favicon.ico">
+        <link rel="stylesheet" href="css/style.css"/>
+    </head>
+    <body>
+        <div class="toppage">
+            <div class="siteheader">
+                <h1>Välkommen till min rapport-sida!</h1>
+            </div>
+
+            <div class="navbar">
+                <nav>
+                    <ul>
+                        <li><a href="{{ url("home") }}">Startsida</a></li>
+                        <li><a href="{{ path("about") }}">Om</a></li>
+                        <li><a href="{{ path("report") }}">Redovisningar</a></li>
+                    <ul>
+                </nav>
+            </div>
+        </div>
+
+        {% block content %}
+            <p>Innehåll</p>
+        {% endblock %}
+
+        <div class="sitefooter">
+            <p>Den här sidan är gjord av en student på Blekinge Tekniska Högskola,
+            i kursen mvc på programmet Webbprogrammering.</p>
+        </div>
+
+    </body>
+</html>
