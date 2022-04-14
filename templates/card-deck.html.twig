@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+
+{% for card in cards %}
+    <div class="card">
+        {% if ("♦" in card.getCard()) or ("♥" in card.getCard()) %}
+            <div class="cardred">
+                {{ card.getCard() }}
+            </div>
+        {% else %}
+            <div class="cardblack">
+                {{ card.getCard() }}
+            </div>
+        {% endif %}
+    </div>
+{% endfor %}
+
+{% endblock %}
