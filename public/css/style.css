@@ -25,11 +25,12 @@ ul {
 
 .sitefooter {
     height: 3.5em;
-    display: flex;
     background-color: #ffa459;
     text-align: center;
     padding: 10px;
     margin-top: 20px;
+    display: inline-block;
+    width: 100%;
 }
 
 .siteheader {
@@ -62,4 +63,26 @@ a:hover {
 
 .reporttext {
     margin-bottom: 20px;
+}
+
+.cardred {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 5px;
+    color: red;
+}
+
+.cardblack {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.card {
+    display: inline-block;
+    margin: 15px 15px 15px 0;
+    width: 80px;
+    height: 120px;
+    font-size: 25px;
+    background-color: white;
 }
