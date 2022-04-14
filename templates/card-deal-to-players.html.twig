@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+
+{% for player in players %}
+    <p>Spelare {{ player.playerId }}
+    {% for card in player.hand %}
+        <div class="card">
+            {% if ("♦" in card.getCard()) or ("♥" in card.getCard()) %}
+                <div class="cardred">
+                    {{ card.getCard() }}
+                </div>
+            {% else %}
+                <div class="cardblack">
+                    {{ card.getCard() }}
+                </div>
+            {% endif %}
+        </div>
+    {% endfor %}
+{% endfor %}
+
+<p>Antal kort kvar: {{ cardLeft }}</p>
+
+{% endblock %}
