@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+
+<ul>
+    <li><a href="{{ url("card-home") }}">Startsida kortspel</a></li>
+    <li><a href="{{ path("card-deck") }}">Visa samtliga kort sorterade</a></li>
+    <li><a href="{{ path("card-deck-shuffle") }}">Visa samtliga kort blandade</a></li>
+    <li><a href="{{ path("card-deck-draw") }}">Drar ett kort från kortleken</a></li>
+    <li><a href="{{ path("card-deck-draw-number", {"number": 1}) }}">Drar x antal kort från kortleken</a></li>
+    <li><a href="{{ path("card-deck-deal-players-cards", {"players": 1, "cards": 1}) }}">Delar ut x kort till x spelare</a></li>
+    <li><a href="{{ path("card-deck2") }}">Visa samtliga kort sorterade, med jokrar</a></li>
+    <li><a href="{{ path("json-home") }}">Visa samtliga kort sorterade, JSON</a></li>
+<ul>
+
+{% endblock %}
