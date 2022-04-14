@@ -41,6 +41,48 @@
 <p>Mitt TIL för detta kursmoment är att jag kommit igång med Symfony och skapat en webbplats.</p>
 
 <h2>Kmom02</h2>
+<div class="reporttext">
+    <p>Arv innebär att en klass ärver från en annan klass. Klassen som ärver är en subklass till basklassen.
+    Subklassen kommer få tillgång till det publika från basklassen, som t.ex. publika attribut eller
+    publika metoder. Subklassen kan även ha egna egenskaper och metoder samt överladda metoder.
+    class B extends A betyder att B är subklass till basklassen A och ärver det publika från A.</p>
+
+<div class="reporttext">
+    <p>Komposition innebär att en klass består av en annan klass. I kortspels uppgiften består klassen
+    kortlek av klassen kort och klassen hand av klassen kort.</p>
+</div>
+
+<div class="reporttext">
+    <p>Interface är definierat som “Ett kontrakt där en klass lovar att erbjuda en viss uppsättning metoder”.
+    Ett interface kan innehålla koden “public function setVariable($name, $var). Det betyder att de klasser
+    som använder sig av interfacet behöver ha en metod setVariable($name, $var) för att uppfylla löftet.
+    Interface är ett sätt att göra koden förberedd för återanvändning.</p>
+</div>
+
+<div class="reporttext">
+    Trait används istället för multipelt arv som inte stöds i PHP. Det är ett sätt för en klass att ärva
+    från flera basklasser. Trait är bra att använda när det finns kod som är användbar i flera klasser.</p>
+</div>
+
+<div class="reporttext">
+    <p>Jag löste veckans uppgift i flera steg. Inledningsvis implementerade jag mina klasser och testade i
+    terminalen genom att köra php-filerna. Det fungerade bra och jag övergick till att få till det på webben
+    med Symfony och Twig.</p>
+</div>
+
+<div class="reporttext">
+    <p>Det fungerade bra att lösa uppgiften i Symfony också. Det svåraste var att få till korten att visas på
+    ett bra sätt. Jag använde unicode icons och CSS kod för att få till det. Det blev en ganska enkel variant,
+    men det framgår också tydligt vad kortet har för färg och värde. Jag använder for-loopar för att loopa
+    igenom array med alla kortobjekt och if-satser för att kolla om det är ett rött eller svartfärgat kort.
+    För att få till det med att för varje spelare visa spelarens hand behöver jag en ytterligare for-loop som
+    loopar igenom för varje spelare. Varje spelare får också ett unikt id som gör att man ser vilka kort som
+    tillhör vilken spelare. Json-delen blev lite utmanande att få till på ett snyggt sätt. Unicode ikonerna
+    visades inte och utskriften blev inte så snygg till en början. Jag sökte ett tag på internet innan jag
+    hittade en lösning. Jag använder pretty_print och unescaped_unicode.</p>
+</div>
+
+<p>TIL för detta kursmoment är att jag lärt mig mer om konstruktioner i PHP, som arv, interface och trait.</p>
 
 <h2>Kmom03</h2>
 
