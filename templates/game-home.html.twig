@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+
+<h2>Kortspelet 21 fungerar så här:</h2>
+
+<p>Spelaren och banken ska få summan 21 genom ett antal kort.</p>
+<p>Spelaren tar kort tills den stannar eller får summan över 21.</p>
+<p>Spelaren bestämmer att stanna eller ta ytterligare ett kort.</p>
+<p>Om spelaren får över 21 vinner banken.</p>
+<p>När spelaren stannar är det bankens tur.</p>
+<p>Banken tar kort tills den har 17 eller mer.</p>
+<p>Ess räknar som 14 om inte summan då överstiger 21. Då räknas ess som 1.</p>
+<p>Spelaren vinner om banken får över 21.</p>
+<p>Banken vinner vid lika eller om banken har mer än spelaren.</p>
+
+<div class="link-margin">
+    <ul>
+        <li><a href="{{ path("game-play") }}">Starta spelet</a></li>
+        <li><a href="{{ path("game-doc") }}">Dokumentation</a></li>
+    </ul>
+</div>
+
+{% endblock %}
