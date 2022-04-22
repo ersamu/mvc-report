@@ -85,6 +85,40 @@
 <p>TIL för detta kursmoment är att jag lärt mig mer om konstruktioner i PHP, som arv, interface och trait.</p>
 
 <h2>Kmom03</h2>
+<div class="reporttext">
+    <p>Att modellera ett kortspel med flödesdiagram och pseudokod har varit en ny bekantskap för mig.
+    Jag har tidigare gjort klassdiagram och ER-modellering. Det blev ett bra hjälpmedel att göra det
+    innan jag börjar programmera, då vet jag hur logiken ska fungera. Jag är dock lite osäker på hur mycket
+    som ska tas med i flödesdiagram och pseudokod som anrop till metoder. Det är inte fullständiga lösningar
+    som jag lämnar in, ser det främst som ett bra sätt att börja tänka innan programmeringen.</p>
+</div>
+
+<div class="reporttext">
+    <p>Jag lär mig mer och mer om objektorientering i PHP och hur man bör tänka med privata/publika metoder
+    och attribut. I kmom03 gjorde jag funktioner som returnerade spelaren och bankens hand och summa,
+    i stället för att ha variablerna publika. I kmom02 blev det lite mycket som var publikt och det är
+    något jag kommer tänka på ännu mer framöver. Att skriva snygg kod är en utmaning för mig som fortfarande
+    lär mig mer om objektorientering i PHP. Jag har tänkt en del på det under arbetets gång. Efter att ha
+    kört valideringen på högsta nivå 9 så fick jag många anmärkningar. Jag valde att främst lösa de med att
+    deklarera variabler och vad metoderna returnerar. Jag skapade också en ny kontroller för spelet. En del
+    anmärkningar känns som att jag behöver mer kunskap innan jag kan lösa de på ett bra sätt. Det finns mycket
+    som kan göras bättre för att få snygg kod. Bland annat borde korten läggas till i spelarens hand i
+    handklassen och inte i spelklassen, för att avlasta på koden där. Spelklassen kan också delas upp i flera klasser.</p>
+</div>
+
+<div class="reporttext">
+    <p>Veckans arbete gick bra att genomföra. Direkt när jag läste uppgiften såg jag ett potentiellt problem:
+    Hur ska jag hantera att ess kan vara 1 eller 14? Ett alternativ hade varit att skapa en knapp där användaren
+    bestämmer värde. Jag valde dock att bestämma detta åt användaren, jag tänker att man vill komma så nära 21
+    som möjligt men inte över. Därför kollar jag om spelarens handsumma är mindre än 8 och i så fall räknas ess
+    som 14. Om summan överstiger 21 med ess räknat som 14 räknas istället ess som 1. Samma logik används för
+    banken, som tar nya kort fram till summan 18 eller högre. Ett annat problem som jag inte räknat med var vilka
+    knappar som skulle synas. När spelet hade en vinnare ville jag inte längre att användaren skulle kunna dra fler
+    kort, utan istället ha en knapp för nytt spel. Jag försökte hitta någon if-sats att stoppa in, men mina försök
+    misslyckades och jag fick använda session till det.</p>
+</div>
+
+<p>Mitt TIL för detta kursmoment är att jag lärt mig mer om hur man kan skriva snygg kod.</p>
 
 <h2>Kmom04</h2>
 
