@@ -4,10 +4,10 @@ namespace App\Card;
 
 class Player
 {
-    public $playerId;
-    public $hand;
+    public int $playerId;
+    public array $hand;
 
-    public function __construct($playerId, $hand)
+    public function __construct(int $playerId, array $hand)
     {
         $this->playerId = $playerId;
         $this->hand = $hand;
