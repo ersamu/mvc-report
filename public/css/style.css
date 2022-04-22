@@ -86,3 +86,17 @@ a:hover {
     font-size: 25px;
     background-color: white;
 }
+
+form {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.message-block {
+    display: block;
+    font-weight: bold;
+}
+
+.link-margin {
+    margin-top: 10px;
+}
