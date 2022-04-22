@@ -1,0 +1,58 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+
+<p>Spelare</p>
+{% for card in playerHand %}
+    <div class="card">
+        {% if ("♦" in card.getCard()) or ("♥" in card.getCard()) %}
+            <div class="cardred">
+                {{ card.getCard() }}
+            </div>
+        {% else %}
+            <div class="cardblack">
+                {{ card.getCard() }}
+            </div>
+        {% endif %}
+    </div>
+{% endfor %}
+
+<p>Bank</p>
+{% for card in computerHand %}
+    <div class="card">
+        {% if ("♦" in card.getCard()) or ("♥" in card.getCard()) %}
+            <div class="cardred">
+                {{ card.getCard() }}
+            </div>
+        {% else %}
+            <div class="cardblack">
+                {{ card.getCard() }}
+            </div>
+        {% endif %}
+    </div>
+{% endfor %}
+
+{% for message in app.flashes("info") %}
+    <div class="message-block">
+        {{ message }}
+    </div>
+{% endfor %}
+
+{% if (turn == "Computer") %}
+    <form method="post">
+        <input type="submit" name="newGame" value="Nytt spel"></button>
+    </form>
+{% else %}
+    <form method="post">
+        <input type="submit" name="draw" value="Dra ett kort"></button>
+        <input type="submit" name="stop" value="Stanna"></button>
+    </form>
+{% endif %}
+
+<p>Spelarens värde: {{ playerSum }}
+<p>Bankens värde: {{ computerSum }}
+
+{% endblock %}
