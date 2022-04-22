@@ -1,0 +1,40 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+
+<h2>Flödesdiagram</h2>
+<img src="img/flowchart.drawio.png" alt="Flödesdiagram spelet 21">
+
+<h2>Pseudokod</h2>
+<p>IF turn == "player" <br>
+    WHILE playerSum < 21 <br>
+        Spelaren väljer att dra ett till kort eller stanna <br>
+        IF väljer kort <br>
+            Dra kort <br>
+        ELSE <br>
+            IF playerSum > 21 <br>
+                Banken vinner <br>
+            ELSE <br>
+                Bankens tur <br>
+    ENDWHILE <br>
+ELSE <br>
+    WHILE computerSum < 18: <br>
+        Banken drar kort <br>
+            IF computerSum > 21 OR playerSum > computerSum <br>
+                Spelaren vinner <br>
+            ELSE <br>
+                Banken vinner <br>
+    ENDWHILE <br>
+ENDIF <br>
+Nytt spel</p>
+
+<h2>Klasser med förklarande mening</h2>
+<p>Klass Card som håller kortets färg och värde.</p>
+<p>Klass Deck som håller kortobjekten, kan blanda korten, ge ut kort och ge information om hur många som återstår.</p>
+<p>Klass Player som ger spelaren ett id och håller spelarens hand.</p>
+<p>Klass Game som kan kolla efter vinnare och hålla spelarens handvärde.</p>
+
+{% endblock %}
