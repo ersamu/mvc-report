@@ -9,6 +9,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use App\Card\Deck;
+use App\Card\DeckWith2Jokers;
+use App\Card\Player;
 
 class CardController extends AbstractController
 {
@@ -18,7 +21,7 @@ class CardController extends AbstractController
     public function home(): Response
     {
         $data = [
-            'title' => 'Card links',
+            'title' => 'Kortlänkar',
         ];
         return $this->render('card-home.html.twig', $data);
     }
@@ -28,7 +31,7 @@ class CardController extends AbstractController
      */
     public function deck(): Response
     {
-        $deck = new \App\Card\Deck();
+        $deck = new Deck();
         $getAllCards = $deck->getAllCards();
 
         $data = [
@@ -45,8 +48,8 @@ class CardController extends AbstractController
     {
         $session->clear();
 
-        $deck = new \App\Card\Deck();
-        $getAllCards = $deck->getAllCards();
+        $deck = new Deck();
+        $deck->getAllCards();
         $shuffleCards = $deck->shuffleCards();
 
         $data = [
@@ -62,10 +65,10 @@ class CardController extends AbstractController
      */
     public function drawCard(SessionInterface $session): Response
     {
-        $deck = $session->get("deck") ?? new \App\Card\Deck();
+        $deck = $session->get("deck") ?? new Deck();
 
         if ($deck->cardsLeft() == 52) {
-            $shuffleCards = $deck->shuffleCards();
+            $deck->shuffleCards();
         }
 
         $drawCards = $deck->drawCard(1);
@@ -87,10 +90,10 @@ class CardController extends AbstractController
      */
     public function drawNrOfCards(int $number, SessionInterface $session): Response
     {
-        $deck = $session->get("deck") ?? new \App\Card\Deck();
+        $deck = $session->get("deck") ?? new Deck();
 
         if ($deck->cardsLeft() == 52) {
-            $shuffleCards = $deck->shuffleCards();
+            $deck->shuffleCards();
         }
 
         $drawCards = $deck->drawCard($number);
@@ -111,16 +114,16 @@ class CardController extends AbstractController
      */
     public function dealToPlayers(int $players, int $cards, SessionInterface $session): Response
     {
-        $deck = $session->get("deck") ?? new \App\Card\Deck();
+        $deck = $session->get("deck") ?? new Deck();
 
         if ($deck->cardsLeft() == 52) {
-            $shuffleCards = $deck->shuffleCards();
+            $deck->shuffleCards();
         }
 
-        $playerArray;
+        $playerArray = [];
 
         for ($x = 0; $x < $players; $x++) {
-            $playerArray[] = new \App\Card\Player($x + 1, $deck->drawCard($cards));
+            $playerArray[] = new Player($x + 1, $deck->drawCard($cards));
         }
 
         $cardsLeft = $deck->cardsLeft();
@@ -140,7 +143,7 @@ class CardController extends AbstractController
      */
     public function deck2(): Response
     {
-        $deck2 = new \App\Card\DeckWith2Jokers();
+        $deck2 = new DeckWith2Jokers();
         $deck2->addJokers();
         $getAllCards = $deck2->getAllCards();
 
