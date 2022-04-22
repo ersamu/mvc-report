@@ -4,17 +4,16 @@ namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Card\Deck;
 
 class JsonController
 {
-    private $number;
-
     /**
      * @Route("/card/api/deck", name="json-home")
      */
     public function deckAsJson(): JsonResponse
     {
-        $deck = new \App\Card\Deck();
+        $deck = new Deck();
         $getAllCards = $deck->getAllCards();
         $cardArray = [];
 
