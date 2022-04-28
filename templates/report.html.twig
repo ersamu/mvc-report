@@ -121,6 +121,45 @@
 <p>Mitt TIL för detta kursmoment är att jag lärt mig mer om hur man kan skriva snygg kod.</p>
 
 <h2>Kmom04</h2>
+<div class="reporttext">
+    <p>Det är viktigt att testa sin kod så man upptäcker eventuella fel, att koden inte gör det man vill. Testningen
+    är lik den vi gjorde i kursen oopython. Jag använde manualen för att se vilka olika assertions jag kan använda.
+    Jag upplever att PHPUnit är ett mycket bra verktyg som är enkelt att förstå för att testa sin kod.</p>
+</div>
+
+<div class="reporttext">
+    <p>Kodtäckningen blev totalt nästan 90%. Det blev 100% på alla klasser förutom Game som blev 85% vilket jag
+    ändå är ganska nöjd med. Jag hade behövt göra en del ändringar i min kod för att testa de sista metoderna.</p>
+</div>
+
+<div class="reporttext">
+    <p>Min kod är till största delen testbar. Det som kan vara svårt att testa är t.ex. shuffleCards där alla kort
+    blandas och se att de verkligen blandas. Teoretiskt sätt skulle den blanda korten på samma sätt de redan är
+    sorterade. Det var också klurigt att testa winner-metoderna, där jag inte riktigt lyckades testa så möjliga fall.</p>
+</div>
+
+<div class="reporttext">
+    <p>Jag valde att inte göra några större förändringar i min kod då jag tycker att den är väldigt testbar.
+    Den ända ändringen var att jag lade till en returnering av senaste dragna korten i min Game-klass för att
+    göra den mer testbar. Om jag skulle gjort mer ändringar hade jag sätt till att ha mindre variabler publika
+    och istället ha små metoder som returnerar variabeln, alltså tänkt mer på get/set metoder. Några metoder kan
+    delas upp mer och jag skulle kunna göra en egen klass för handen och då omstrukturerat min kod. Jag hade kunnat
+    göra mina metoder för att kontrollera vinnare på ett bättre strukturerat sätt.</p>
+</div>
+
+<div class="reporttext">
+    <p>Testbar kod kan identifiera snygg och ren kod på det sättet att om en metod eller funktion gör mycket
+    (innehåller mycket kod) så blir det svårare att testa. Det bästa ur testperspektivet är att ha små klasser och
+    små metoder, vilket gör att koden blir både mer lättläst, lätt att förstå och lätt att testa.</p>
+</div>
+
+<div class="reporttext">
+    <p>Uppgiften gick utan problem med undantag för att jag hade gjort misstag i mina mappnamn och namespace.
+    Det gjorde att det blev konflikt med composer require —dev symfony/test-pack som gjorde att testerna först
+    inte hittade mina klasser genom namespace.</p>
+</div>
+
+<p>TIL för detta kursmoment är att jag lärt mig att göra enhetstester med phpunit.</p>
 
 <h2>Kmom05</h2>
 
