@@ -100,3 +100,34 @@ form {
 .link-margin {
     margin-top: 10px;
 }
+
+.input-box {
+    display: block;
+    border: 1.5px solid;
+    border-radius: 0.2rem;
+    padding: 0.6rem 0.6rem;
+    box-sizing: border-box;
+    margin-bottom: 1.4rem;
+    width: 32rem;
+}
+
+.input-submit {
+    font-weight: bold;
+    padding: 10px;
+}
+
+label {
+    font-weight: bold;
+    margin: 16px 0 8px 0;
+    display: block;
+}
+
+.bookimg {
+    width: 100px;
+    height: 150px;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 20px 0;
+}
