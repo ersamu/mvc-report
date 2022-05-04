@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Lägg till en bok{% endblock %}
+
+{% block content %}
+<h1>Lägg till en bok</h1>
+
+<form method="post">
+    <label>Titel</label>
+    <input class="input-box" type="text" name="title" required>
+
+    <label>Isbn</label>
+    <input class="input-box" type="number" name="isbn" required>
+
+    <label>Författare</label>
+    <input class="input-box" type="text" name="author" required>
+
+    <label>Bild</label>
+    <input class="input-box" type="text" name="image" value="https://dbwebb.se/image/snapht18/boken_databasteknik.jpg" required>
+
+    <input class="input-submit" type="submit" value="Lägg till">
+</form>
+
+{% endblock %}

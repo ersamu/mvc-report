@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Bok{% endblock %}
+
+{% block content %}
+<h1>Bok</h1>
+
+<table>
+    <tr>
+        <th>Titel</th>
+        <th>Isbn</th>
+        <th>Författare</th>
+        <th>Bild</th>
+        <th>Uppdatera</th>
+        <th>Ta bort</th>
+    </tr>
+    <tr>
+        <td>{{ book.getTitle() }}</a></td>
+        <td>{{ book.getIsbn() }}</td>
+        <td>{{ book.getAuthor() }}</td>
+        <td><img class="bookimg" src="{{ book.getImage() }}" alt="Bild som representerar boken">
+        <td><a href="{{ path("book_update", {"id": book.getId()}) }}">Uppdatera</a></td>
+        <td><a href="{{ path("book_delete", {"id": book.getId()}) }}">Ta bort</a></td>
+        <td></td>
+    </tr>
+</table>
+
+{% endblock %}

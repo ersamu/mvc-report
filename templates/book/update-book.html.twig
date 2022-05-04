@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Uppdatera detaljer om en bok{% endblock %}
+
+{% block content %}
+<h1>Uppdatera detaljer om en bok</h1>
+
+<form method="post">
+    <label>Titel</label>
+    <input class="input-box" type="text" name="title" value="{{ book.getTitle() }}" required>
+
+    <label>Isbn</label>
+    <input class="input-box" type="number" name="isbn" value="{{ book.getIsbn() }}" required>
+
+    <label>Författare</label>
+    <input class="input-box" type="text" name="author" value="{{ book.getAuthor() }}" required>
+
+    <label>Bild</label>
+    <input class="input-box" type="text" name="image" value="{{ book.getImage() }}" required>
+
+    <input class="input-submit" type="submit" value="Uppdatera">
+</form>
+
+{% endblock %}

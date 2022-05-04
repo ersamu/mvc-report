@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Radera en bok{% endblock %}
+
+{% block content %}
+<h1>Radera en bok</h1>
+
+<form method="post">
+    <label>Titel</label>
+    <input class="input-box" type="text" name="title" value="{{ book.getTitle() }}" readonly>
+
+    <label>Isbn</label>
+    <input class="input-box" type="number" name="isbn" value="{{ book.getIsbn() }}" readonly>
+
+    <label>Författare</label>
+    <input class="input-box" type="text" name="author" value="{{ book.getAuthor() }}" readonly>
+
+    <label>Bild</label>
+    <input class="input-box" type="text" name="image" value="{{ book.getImage() }}" readonly>
+
+    <input class="input-submit" type="submit" value="Radera">
+</form>
+
+{% endblock %}

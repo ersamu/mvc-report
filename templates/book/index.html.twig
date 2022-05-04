@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Bibliotek{% endblock %}
+
+{% block content %}
+<h1>Bibliotek</h1>
+
+<div class="link-margin">
+    <ul>
+        <li><a href="{{ path("add_book") }}">Lägg till bok</a></li>
+        <li><a href="{{ path("book_show_all") }}">Visa alla böcker</a></li>
+        <li><a href="{{ path("book_show_one", {"id": 1}) }}">Visar en speciell bok</a></li>
+        <li><a href="{{ path("book_delete", {"id": 1}) }}">Radera en bok</a></li>
+        <li><a href="{{ path("book_update", {"id": 1}) }}">Uppdatera en bok</a></li>
+    </ul>
+</div>
+
+{% endblock %}
