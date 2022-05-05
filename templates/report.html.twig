@@ -162,6 +162,37 @@
 <p>TIL för detta kursmoment är att jag lärt mig att göra enhetstester med phpunit.</p>
 
 <h2>Kmom05</h2>
+<div class="reporttext">
+    <p>Den här veckan har jag arbetat med att integrera applikationskod med databasen i ramverket Symfony.
+    Övningen fungerade bra och visade på ett bra sätt hur jag gör för att komma igång med Doctrine ORM i me/report.
+    Tyvärr fungerade inte .env.local filen för mig, det blev problem på studentservern. Jag behövde manuellt ändra
+    i .env och låta bli att uppdatera den till mitt git-repo eftersom den då innehåller känslig information.</p>
+</div>
+
+<div class="reporttext">
+    <p>När jag gjorde uppgiften kunde jag jämföra med databas-kursen där vi också gjort CRUD och använt formulär.
+    Jag föredrar än så länge det sättet vi gjorde i databas-kursen för där har jag själv mer koll på koden.
+    I Symfony genereras en del kod som jag som utvecklar inte alltid kan ändra så enkelt. Användargränssnittet
+    blev bra när det gäller formulären, men tabellen hade jag kunnat göra på ett bättre sätt. Med en bild som
+    ska visas upp och en del kolumner skulle jag när jag tänker i efterhand inte gjort en tabell, utan visat
+    informationen på ett annat sätt med annan styling. Det blir lätt mycket information på liten plats och
+    inte så snygg design med tabeller.</p>
+</div>
+
+<div class="reporttext">
+    <p>Utöver problemet på studentservern så fick jag ett mer oväntat problem, som jag inte räknat med. Jag satte
+    ISBN till att vara en int/number. Problemet som jag upptäckte på studentservern var att ISBN alltid blev
+    2147483647 vilket det blir när talet är så stort så det inte kan lagras i 32 bitar. Det fungerade när jag
+    testade lokalt. På studentservern blev det error och kraschade sidan när jag försökte addera eller uppdatera
+    en produkt med mer än 9 siffror (ISBN består av mer än 9 siffror). Jag behövde då ändra typen på ISBN till
+    sträng för att det skulle fungera. Hade jag använt samma sätt som i databaskursen hade det inte varit något
+    problem eftersom det bara skulle ändras i databas-koden. Här behöver jag ändra på flera ställen och köra
+    kommandon i terminalen för att få det att uppdatera, vilket är mer omständligt.</p>
+</div>
+
+<p>TIL för detta kursmoment är att jag lärt mig att koppla samman databaser med ramverket Symfony.</p>
+
+</div>
 
 <h2>Kmom06</h2>
 
