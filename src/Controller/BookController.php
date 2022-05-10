@@ -6,7 +6,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-
 use App\Entity\Book;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Repository\BookRepository;
@@ -14,6 +13,7 @@ use App\Repository\BookRepository;
 class BookController extends AbstractController
 {
     /**
+     * 
      * @Route("/book", name="book_start")
      */
     public function bookIndex(): Response
@@ -88,7 +88,7 @@ class BookController extends AbstractController
         $data = [
             "book" => $book,
         ];
-        
+
         return $this->render("book/show-one.html.twig", $data);
     }
 
@@ -105,7 +105,7 @@ class BookController extends AbstractController
         $data = [
             "book" => $book,
         ];
-        
+
         return $this->render("book/delete-book.html.twig", $data);
     }
 
@@ -121,7 +121,7 @@ class BookController extends AbstractController
 
         if (!$book) {
             throw $this->createNotFoundException(
-                "Finns ingen bok med id ".$id
+                "Finns ingen bok med id " . $id
             );
         }
 
@@ -144,7 +144,7 @@ class BookController extends AbstractController
         $data = [
             "book" => $book,
         ];
-        
+
         return $this->render("book/update-book.html.twig", $data);
     }
 
@@ -161,7 +161,7 @@ class BookController extends AbstractController
 
         if (!$book) {
             throw $this->createNotFoundException(
-                "Finns ingen bok med id ".$id
+                "Finns ingen bok med id " . $id
             );
         }
 
