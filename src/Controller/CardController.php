@@ -16,32 +16,6 @@ use App\Card\Player;
 class CardController extends AbstractController
 {
     /**
-     * @Route("/card", name="card-home")
-     */
-    public function home(): Response
-    {
-        $data = [
-            'title' => 'Kortlänkar',
-        ];
-        return $this->render('card-home.html.twig', $data);
-    }
-
-    /**
-     * @Route("/card/deck", name="card-deck")
-     */
-    public function deck(): Response
-    {
-        $deck = new Deck();
-        $getAllCards = $deck->getAllCards();
-
-        $data = [
-            'title' => 'Visar samtliga kort sorterade',
-            'cards' => $getAllCards,
-        ];
-        return $this->render('card-deck.html.twig', $data);
-    }
-
-    /**
      * @Route("/card/deck/shuffle", name="card-deck-shuffle")
      */
     public function shuffleCards(SessionInterface $session): Response
@@ -136,21 +110,5 @@ class CardController extends AbstractController
             'cardLeft' => $cardsLeft,
         ];
         return $this->render('card-deal-to-players.html.twig', $data);
-    }
-
-    /**
-     * @Route("/card/deck2", name="card-deck2")
-     */
-    public function deck2(): Response
-    {
-        $deck2 = new DeckWith2Jokers();
-        $deck2->addJokers();
-        $getAllCards = $deck2->getAllCards();
-
-        $data = [
-            'title' => 'Visar samtliga kort sorterade, med jokrar',
-            'cards' => $getAllCards,
-        ];
-        return $this->render('card-deck.html.twig', $data);
     }
 }

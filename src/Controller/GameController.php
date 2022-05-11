@@ -15,28 +15,6 @@ use App\Card\Player;
 class GameController extends AbstractController
 {
     /**
-     * @Route("/game", name="game-home")
-     */
-    public function game(): Response
-    {
-        $data = [
-            'title' => 'Landningssida',
-        ];
-        return $this->render('game-home.html.twig', $data);
-    }
-
-    /**
-     * @Route("/game/doc", name="game-doc")
-     */
-    public function documentation(): Response
-    {
-        $data = [
-            'title' => 'Dokumentation',
-        ];
-        return $this->render('game-doc.html.twig', $data);
-    }
-
-    /**
      * @Route("/game/play", name="game-play", methods={"GET","HEAD"})
      */
     public function playGame(SessionInterface $session): Response
