@@ -1,0 +1,137 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Redovisningar{% endblock %}
+
+{% block content %}
+<h1>Analysera och förbättra kodkvalitet</h1>
+
+<h2>Introduktion</h2>
+<div class="reporttext">
+    <p>Coverage - kodtäckning. Det anger i procent hur stor del av min kod som är testad. Man vill gärna nå
+    100% kodtäckning, alltså att all kod berörs av tester. Bara för att man når 100% eller i närheten så
+    behöver det inte innebära att koden är helt felsäker. Det kan fortfarande uppstå fel.</p>
+</div>
+
+<div class="reporttext">
+    <p>Complexity - Komplexitet. Det anger ett värde hur komplex koden är. Om koden är mycket komplex blir det
+    svårare att både testa koden och även utveckla den vidare. En kod blir för komplex till exempel när en
+    funktion eller metod har många if-satser och loopar. Då kan det vara bra att försöka dela upp koden i fler
+    funktioner/metoder.</p>
+</div>
+
+<div class="reporttext">
+    <p>Cohesion - sammanhållning. Det ger ett mättal på hur bra sammanhållen koden är och hur tätt koden är
+    kopplad till varandra. Man vill gärna ha lägre värden (1 är lägsta) och det innebär till exempel att allt
+    i en klass hänger ihop. Högre värden innebär däremot att en klass gör för mycket och bör delas upp i flera
+    klasser.</p>
+</div>
+
+<div class="reporttext">
+    <p>Coupling - koppling. Det ger värden på hur beroende en klass är av andra klasser. Om klasser har många
+    anrop till en annan klass har den många beroenden av den klassen. Det kan ställa till det i utvecklingen
+    då man kan behöva ändra i flera klasser. Samtidigt är det inte heller bra att ha mycket kod i en klass.
+    Värdet på afferent coupling anger hur mycket en given klass använder andra klasser. Värdet på efferent
+    coupling anger hur många andra klasser som beror på en given klass.</p>
+</div>
+
+<h2>Phpmetrics</h2>
+<div class="reporttext">
+    <p>Coverage syns inte, så jag får lita på värden från Scrutinizer när det gäller kodtäckningen.</p>
+</div>
+
+<div class="reporttext">
+    <p>Complexity ger röda cirklar på flera av mina klasser. Mindre röda cirklar på Player och DeckWith2Jokers
+    vilket var lite överraskande eftersom de inte alls är särskilt stora komplexa klasser. De stora röda
+    cirklarna för klasserna Game och Deck var mer väntade, eftersom de klasserna innehåller mycket mer kod som
+    kan anses som komplex.</p>
+</div>
+
+<div class="reporttext">
+    <p>Cohesion får jag 1,08 som medelvärde vilket jag är mycket nöjd med. En noggrannare översyn visar att det
+    endast är klasserna BookController, GameController och BookRepository som får 2 i LCOM. Övriga klasser har
+    1 i LCOM, vilket är att föredra.</p>
+</div>
+
+<div class="reporttext">
+    <p>Coupling: Medelvärdet är 1,15 på afferent coupling och 2,85 på efferent coupling. En noggrannare översikt
+    visar vad gäller afferent coupling att Deck har högst värde på 5 följt av Player på 3. Det är väntat,
+    eftersom det behöver skapas objekt av Deck i både Game() och i kontrollerklasserna CardController och
+    GameController. Just kontrollerklasserna har högst värden på efferent coupling vilket också är väntat
+    eftersom det skapas flera objekt av flera klasser där.</p>
+</div>
+
+<div class="reporttext">
+    <p>Violations: Jag väljer att lyfta violations då det här är mycket viktigt när det gäller att upptäcka fel.
+    Jag fick två varningar som jag inte riktigt förstår mig på. Det anmärks på Stable Abstractions Principle och
+    ska indikera på hur abstrakt en klass är.</p>
+</div>
+
+<h2>Scrutinizer</h2>
+<div class="reporttext">
+    <p>Coverage: Totalt är kodtäckningen 32% vilket egentligen klassas som ett dåligt resultat. Med tanke på att
+    jag inte har tester för klasserna i t.ex. controller och entity och repository så når inte kodtäckningen
+    högre. Klasserna kopplat till mitt spel har 100% kodtäckning i 4 av 5 fall. Av de klasserna är det endast
+    Game-klassen som sticker ut och har 94,03% i kodtäckning. Det fanns någon metod i den klassen som var lite
+    svårtestad.</p>
+</div>
+
+<div class="reporttext">
+    <p>Complexity: Återigen sticker Game klassen ut som den mest komplexa klassen och får värdet 28. Det beror
+    bland annat på de många if-satser som finns för att ge en player rätt poäng. Är det till exempel en kung
+    på kortet behöver det omvandlas till 13 poäng och är det en drottning omvandlas till 12 poäng. Även klassen 
+    Deck och kontrollerklasserna CardController och BookController får tvåsiffriga värden. Deck tycker jag är
+    en bra klass, medan CardController och BookController kan delas upp.</p>
+</div>
+
+<div class="reporttext">
+    <p>Cohesion och Coupling kom inte med när jag körde Scrutinizer så jag hänvisar till värden från phpmetrics.</p>
+</div>
+
+<div class="reporttext">
+    <p>CRAP: Jag lyfter fram CRAP då det är ett tal som visar de metoder jag behöver hålla lite extra koll på.
+    Det är metoder som kan vara komplexa och inte alltid vältestade. När jag går till sidan för analysera mina
+    metoder ser jag att två metoder inte får A i betyg, utan B. Det är addToComputerSum och addToPlayerSum i Game
+    klassen. De två metoderna har inte högsta kodtäckningen, men B är också ett ganska bra betyg. Det handlar
+    alltså om att alla fall i metoderna inte omfattas av tester.</p>
+</div>
+
+<h2>Förbättringar</h2>
+<div class="reporttext">
+    <p>Även om de flesta mätvärden är bra så finns det delar i koden som kan göras bättre för att nå ännu bättre
+    mätvärden. Koden fungerar och det är alltid lite svårt då att göra ändringar som skulle kunna gå fel. För att
+    uppnå bästa resultat bör jag dela upp min Game klass men risken är att något går sönder då. Därför har jag
+    svårt att ändra något som fungerar, för att nå lite bättre mätvärden. Istället har jag valt att dela upp mina
+    kontroller klasser CardController och GameController för att försöka uppnå bättre mätvärden när det gäller
+    komplexitet. Jag har svårt att hitta fler än 2 förändringar att implementera, som kan göras utan att behöva
+    ändra mycket i koden. För att få ner komplexitet i Game-klassen krävs en mer omfattande ändring av strukturen.</p>
+</div>
+
+<div class="reporttext">
+    <p>Efter förbättringarna har värden i phpmetrics ändrats lite. Afferent coupling har gått från 1,15 till 1,07
+    vilket är en förbättring och efferent coupling har gått från 2,85 till 2,93 vilket är en försämring. Troligtvis
+    har försämringen att göra med att jag skapade fler klasser när jag delade upp mina kontrollers.</p>
+    <p>I Scrutinizer ser jag att mina ändringar gav önskad effekt, komplexitet blir bättre i både GameController och
+    CardController. GameController går från 8 till 6 och CardController från 11 till 8.</p>
+</div>
+
+<h2>Diskussion</h2>
+<div class="reporttext">
+    <p>Jag tycker att det här är bra verktyg för att öka kodkvalitet. Det jag tycker är svårt är att ändra på kod som
+    fungerar. Det finns alltid en risk att man ändrar så att det inte längre fungerar. Att föredra är att göra
+    enhetstester och köra verktyg som phpmetrics och scrutinizer samtidigt som man utvecklar, inte i efterhand.
+    Genom phpmetrics och scrutinizer får man också svar på hur bra koden är och vad man kan tänka på i utvecklingen
+    av kommande projekt. Får man t.ex. dåliga värden på komplexitet behöver man tolka värdena och kanske tänka mer på
+    det nästa gång.</p>
+</div>
+
+<h2>Före</h2>
+<img src="{{ absolute_url("img/metrics_before.png") }}" width="300px" alt="Värden i metrics innan förbättringar">
+<img src="{{ absolute_url("img/scrutinizer_before1.png") }}" width="300px" alt="Värden i scrutinizer innan förbättringar">
+<img src="{{ absolute_url("img/scrutinizer_before2.png") }}" width="500px" alt="Värden i scrutinizer innan förbättringar">
+
+<h2>Efter</h2>
+<img src="{{ absolute_url("img/metrics_after.png") }}" width="300px" alt="Värden i metrics efter förbättringar">
+<img src="{{ absolute_url("img/scrutinizer_after1.png") }}" width="300px" alt="Värden i scrutinizer efter förbättringar">
+<img src="{{ absolute_url("img/scrutinizer_after2.png") }}" width="500px" alt="Värden i scrutinizer efter förbättringar">
+
+{% endblock %}
