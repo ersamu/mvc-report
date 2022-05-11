@@ -192,9 +192,41 @@
 
 <p>TIL för detta kursmoment är att jag lärt mig att koppla samman databaser med ramverket Symfony.</p>
 
+<h2>Kmom06</h2>
+<div class="reporttext">
+    <p>Phpmetrics är ett bra verktyg för att få en bekräftelse på hur bra kod man gör utifrån de 4C. Jag tror
+    dock att det är ännu mer effektivt på större projekt, mycket av resultaten från phpmetrics var som jag trodde.
+    Det är just de 4C som jag tycker är mest intressanta att kolla på då de ger bra svar på kodkvalitet.</p>
 </div>
 
-<h2>Kmom06</h2>
+<div class="reporttext">
+    <p>Scrutinizer var synd att det inte gick att få fram värden på cohesion och coupling. Det är också ett
+    tydligt verktyg för att se komplexitet och kodtäckning. Eventuellt såg jag inte riktigt så många fördelar
+    med Scrutinizer dock. Kodtäckningen kan man ju få fram till build/coverage som vi lärde oss i kmom04 med
+    composer phpunit. Att totala kodtäckningen är runt 30% som man får fram i badges är också lite ointressant
+    eftersom vi inte gör tester för bland annat kontrollerklasserna. Övriga mätvärden i badges var bra så jag
+    ser det som ett tecken på att min kod är ganska bra enligt Scrutinizer.</p>
+</div>
+
+<div class="reporttext">
+    <p>Just att påvisa kodkvalitet genom badges tror jag på till viss del. Det blir ju lite motvisade med
+    kodtäckning runt 30% som jag var inne på tidigare. Kodkvalité är viktigt för att en kollega på ett företag
+    ska förstå min kod. Då fungerar det inte med dåliga resultat eller otydlig kod. Jag tycker att man kan
+    använda Scrutinizer och phpmetrics men man behöver också analysera mätvärdena mer noggrant. Inte bara kolla
+    på badges och säga att 30% är katastrof när man inte vet vad det beror på. Annars tycker jag att verktyg
+    som phpcpd, phpmd och phpstan också kan säga mycket om kodkvalité och inte minst om på vilken nivå man
+    ligger med phpstan.</p>
+</div>
+
+<div class="reporttext">
+    <p>Veckans arbete gick bra, men det var svårt att hitta saker att förbättra utan att göra mer omfattande
+    ändringar i klasserna. Jag har svårt för att ändra i kod som fungerar, det är så lätt att man gör ändringar
+    och sedan fungerar det inte längre. Jag föredrar därför att göra tester och köra validering samtidigt som
+    programmerar. Det är svårare att göra detta i efterhand. Att mina värden i phpmetrics och scrutinizer också
+    var väldigt bra redan på förhand försvårade ju också denna uppgift :)</p>
+</div>
+
+<p>TIL för detta kursmoment är att jag lärt mig mer om testning för min kod.</p>
 
 <h2>Kmom10</h2>
 
