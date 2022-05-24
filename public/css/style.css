@@ -131,3 +131,17 @@ table {
     border-collapse: separate;
     border-spacing: 20px 0;
 }
+
+.testbox {
+    border: 2px solid black;
+    background-color: grey;
+    padding: 15px 30px;
+    text-align: center;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.hide-text {
+    font-size: 0;
+}
