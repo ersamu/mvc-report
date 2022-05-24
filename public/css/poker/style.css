@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Slabo+27px&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Slabo 27px', serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: black;
+    color: white;
+    line-height: 1.4;
+    margin: 8px auto;
+    width: 90%;
+}
+
+h1, h2 {
+    font-family: 'Bree Serif', serif;
+    margin-top: 20px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+footer {
+    background-color: mediumpurple;
+    display: inline-block;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    height: 3.5em;
+    width: 100%;
+}
+
+header {
+    background-color: mediumpurple;
+    display: flex;
+    padding: 0 0 2% 20%;
+}
+
+nav {
+    height: 50px;
+}
+
+nav a {
+    display: flex;
+    float: left;
+    padding: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+form {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.red {
+    color: red;
+}
+
+.black {
+    color: black;
+}
+
+.card {
+    background-color: white;
+    color: black;
+    font-size: 25px;
+}
+
+.card-content {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.no-card {
+    background-color: rgb(147,152,219);
+    font-size: 0;
+    cursor: pointer;
+}
+
+.cardbox {
+    border: 2px solid black;
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 10px;
+    margin: 5px 5px 0 0;
+    height: 100px;
+    width: 65px;
+}
+
+.pokerimg {
+    width: 8%;
+    height: 6%;
+    margin-left: 20%;
+    margin-top: 1%;
+}
+
+.background-img {
+    background-image: url(../../img/poker/poker.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex;
+}
+
+.left-content {
+    width: 20%;
+    float: left;
+    margin-top: 10%;
+    margin-left: 5%;
+}
+
+.right-content {
+    width: 80%;
+    float: left;
+}
+
+.input-number {
+    margin-left: 10px;
+}
+
+.input-submit {
+    width: 60px;
+    height: 40px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.button-block {
+    display: block;
+    margin-top: 30px;
+    width: 90px;
+    height: 50px;
+    font-weight: bold;
+    font-size: 20px;
+    border: 2px solid red;
+}
+
+.endtext {
+    color: black;
+    font-weight: bold;
+    font-size: 30px;
+}
