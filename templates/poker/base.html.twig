@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Pokerspel{% endblock %}</title>
+        <link rel="icon" href="{{ asset("favicon.ico") }}">
+        <link rel="stylesheet" href="{{ asset("css/poker/style.css") }}"/>
+    </head>
+    <body>
+        <header>
+            <h1>Pokerspel</h1>
+            <img src="{{ asset("img/poker/pokerhand.jpg") }}" class="pokerimg" alt="pokerhand">
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="{{ path("poker-start") }}">Startsida</a></li>
+                <li><a href="{{ path("poker-play") }}">Spela</a></li>
+                <li><a href="{{ path("poker-rules") }}">Regler</a></li>
+                <li><a href="{{ path("scorelist") }}">Poänglista</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Poker_squares">Mer om spelet</a></li>
+            <ul>
+        </nav>
+
+        {% block content %}
+            <p>Innehåll</p>
+        {% endblock %}
+
+        <footer>
+            <p>Den här sidan är gjord av en student på Blekinge Tekniska Högskola,
+            i kursen mvc på programmet Webbprogrammering.</p>
+        </footer>
+
+    </body>
+</html>

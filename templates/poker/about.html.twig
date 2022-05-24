@@ -1,0 +1,57 @@
+{% extends "poker/base.html.twig" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+<p>Mitt projekt handlar om spelet pokerpatiens “poker squares”. Det är en variant av poker där en spelare
+spelar mot sig själv. Målsättningen är att samla så många poäng som möjligt. Poängen sparas efter varje
+omgång i en databas. Man kan spela hur många gånger man vill. Innan varje omgång behöver man satsa
+låtsaspengar, minst 50 kronor på att man kommer över 200 poäng. Tanken är att om man kommer över 200
+poäng vinner man x gånger satsade pengar. Man förlorar satsade pengar om man inte når upp i 200 poäng.</p>
+
+<h2>Länkar</h2>
+<ul>
+    <li><a href="{{ absolute_url("../../docs/api") }}">Dokumentation phpdoc</a></li>
+    <li><a href="{{ absolute_url("../../docs/metrics") }}">Rapport phpmetrics</a></li>
+    <li><a href="https://github.com/ersamu/mvc-report">Github repo</a></li>
+    <li><a href="https://scrutinizer-ci.com/g/ersamu/mvc-report/">Scrutinizer</a></li>
+    <li><a href="{{ path("cleancode") }}">Cleancode</a></li>
+    <li><a href="{{ path("reset-database") }}">Återställ databasen</a></li>
+<ul>
+
+<h2>Kodkvalitet</h2>
+<p>Under utvecklingen av projektet har jag tänkt på de resultat som jag fått av valideringsverktygen
+phpmd, phpstan, phpmetrics och scrutinizer tidigare i kursen.</p>
+<br>
+
+<p>Jag vet att phpmd tidigare anmärkt på att jag använder inte borde använda else i min kod och även en
+del anmärkningar på kod i autogenererade filer. Tidigare i kursen har jag valt att ignorera dessa fel,
+men nu har jag åtgärdat det och tänkt på att försöka undvika else i projektet. När de gäller de
+autogenererade filerna har jag där främst stängt av varningarna då jag inte vill röra koden där för mycket.
+I projektet fick jag anmärkningar på att en metod i klassen Board var för komplex för att den hade för
+många if-satser. Jag valde att dela upp metoderna till två stycken.</p>
+<br>
+
+<p>Under utvecklingen av projektet har jag tänkt på kodkvalitet utifrån 4C och använt phpmetrics och
+scrutinizer för att få fram värden. Jag har framförallt tänkt på ett skriva testbar kod och inte för 
+komplex kod. Till skillnad mot tidigare i kursen så har jag arbetat med enhetstestning samtidigt som
+jag utvecklat mina klasser. När man gör så kan man tänka på att skriva kod som går att testa. I mitt
+projekt kan man göra massor med tester på olika fall med kort på händerna och vilka poäng de ska ge.
+Även om kodtäckningen blir hög täcker testerna inte alls i närheten av alla fall. I minsta tester skapar
+jag händer som jag förväntar mig ska ge poäng för en viss regel och hoppas att de gör det. Det gör att
+kodtäckningen blir hög.</p>
+<br>
+
+<p>Komplexiteten har jag tänkt på under utvecklingen. Med ett projekt som pokerpatiens låter det direkt
+som att det kommer bli mycket if-satser när jag beskriver spelet “Om handen innehåller de här korten...
+ska de bli poäng för den här regeln. Annars om den innehåller de här korten... “. Jag visste att det fanns
+en begränsning i phpmd på 10 i Cyclomatic complexity och där räknas även loopar. Därför utvecklade jag
+mina metoder på ett sådant sätt där jag delade upp dem för att undvika för många if-satser. I mitt fall
+hände det endast i ett fall, där jag skulle kolla vilken regel en hand skulle få poäng för. Det finns 9
+regler + 0 poäng om ingen regel ger poäng, vilket gjorde att jag precis kom upp i 10 if-satser och fick
+dela upp metoden till två. I övrigt är det bara att inse att pokerpatiens kräver många if-satser och det
+gör att koden blir komplex och att mätvärderna på den delen kanske inte blir så bra.</p>
+<br>
+
+{% endblock %}

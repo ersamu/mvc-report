@@ -1,0 +1,59 @@
+{% extends "poker/base.html.twig" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+{% if drawnCards == 0 %}
+    <p>Du måste satsa pengar på hur mycket du vill komma över 200 poäng.</p>
+    <p>Minsta summa är 50 kronor.</p>
+    <form method="post">
+        <label for="money">Pengar</label>
+        <input type="number" class="input-number" name="money" min="50" required><br><br>
+        <input type="submit" class="input-submit" name="bet" value="Satsa">
+    </form>
+{% else %}
+    <div class="background-img">
+        <div class="left-content">
+            <div class="cardbox card">
+                <div class="{{ randomCard.getColor }}">
+                    <div class="card-content">
+                        {{ randomCard.getCard() }}
+                    </div>
+                </div>
+            </div>
+            <form method="post">
+                <input type="submit" class="button-block" name="newGame" value="Nytt spel">
+            </form>
+        </div>
+
+        <div class="right-content">
+            {% if countSelectedBoxes == 25 %}
+                <p class="endtext">Poäng: {{ getScore }}</p>
+                <p class="endtext">{{ checkWin }}
+                <br>
+            {% endif %}
+            <form method="post">
+                {% for i in range(0, 24) %}
+                    {% if (i == 5) or (i == 10) or (i == 15) or (i == 20) %}
+                        <br>
+                    {% endif %}
+                    {% if i in selectedBoxes %}
+                        <div class="cardbox card">
+                            <div class="{{ board[i].getColor }}">
+                                <div class="card-content">
+                                    {{ board[i].getCard() }}
+                                </div>
+                            </div>
+                        </div>
+                    {% else %}
+                        <input type="submit" class="cardbox no-card" name="cardbox" value={{ i+1 }}>
+                    {% endif %}
+                {% endfor %}
+                <br>
+            </form>
+        </div>
+    {% endif %}
+</div>
+
+{% endblock %}

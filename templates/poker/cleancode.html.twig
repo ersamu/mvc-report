@@ -1,0 +1,75 @@
+{% extends "poker/base.html.twig" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+
+<p>Finns det verkligen ett begrepp som är  “Snygg och god kod”? Kan en programmerare uppfatta kod som “snygg”
+och vad innebär det och hur producerar man “snygg kod”?</p>
+<br>
+
+<p>Efter att man lärt sig grunderna i hur man programmerar inser man att det finns flera sätt att skriva sin
+kod och få samma resultat. I vissa fall är lösningarna lika bra, medan det i andra fall finns en skillnad.
+Den skillnaden kanske man kan se med hjälp av verktyg som mäter kodkvalitet. Verktygen är olika beroende på
+vilket programmeringsspråk man använder. För Php finns verktygen Phpmetrics och Scrutinizer som ger ett antal
+mätvärden för en kod. Beroende på programmerarens kunskap och vad det är för typ av kod som man utvecklar gör
+programmeraren en avvägning och kollar närmare på en del värden. När man plockar ut viktiga värden kan man tänka
+på 4C: coverage (kodtäckning), complexity (komplexitet), cohesion (sammanhållning) och coupling (koppling).</p>
+<br>
+
+<p>Kodtäckning är ett värde på hur stor del av koden som är testad. Det finns genomsnittliga värden och sedan
+kan man gå in mer på detaljnivå och kolla exakt vilka rader som testas och inte. För att få bra kodtäckning
+är det viktigt att skriva kod som är testbar. Det bästa är att ha en kodtäckning på 100%, men det innebär inte
+att en kod är felsäker. Ett exempel är att vi har en metod som returnerar en array med ett visst innehåll.
+Vi kan testa att det är en array som metoden returnerar och kodtäckningen för metoden blir 100%. Dock testar
+vi nödvändigtvis inte i ett sådant fall att arrayen har det innehåll vi förväntar oss. Kodtäckningen ger
+indikationer på att man arbetar med testning av kod, vilket är positivt, men ger ingen information om hur
+bra testerna är.</p>
+<br>
+
+<p>Komplexitet är ett värde på hur komplex en kod är. Om koden får ett högt värde här betyder det att koden
+blir svårare att testa och att utveckla vidare. Man kan tänka sig att man arbetar i ett team med ett antal
+kollegor och om kollegorna ser din kod ska den inte uppfattas som svårläst. Om man behöver skriva långa
+kommentarer för att det ska bli tydligt vad koden gör kan det vara ett tecken på för komplex kod. Det blir
+ett högt värde på komplexitet när en funktion eller metod innehåller för många if-satser och loopar. För att
+få lägre värden bör man dela upp koden i mindre delar, som flera funktioner eller metoder. En bra tumregel
+är att koden inte ska innehålla fler än sammanlagt tio if-satser och loopar i en och samma funktion/metod.
+I fall där fel upptäcks, till exempel genom enhetstester, är det inte säkert att felet upptäcks så snabbt
+om en funktion/metod innehåller mycket kod och gör “flera olika saker”.</p>
+<br>
+
+<p>Sammanhållning är också känd som LCOM (lack of cohesion of methods) och ger ett värde på hur bra
+sammanhållen kod är i en klass. Ett lägre värde “high cohesion” är ett bra tecken på att klassen är väl
+sammanhållen. Ett högre värde “high cohesion” säger att en klass gör för mycket och har flera ansvarsområden.
+I sådana fall bör man fundera på att dela upp klassen i flera mindre klasser för att nå bättre sammahållning.
+Man kan testa sig själv genom att ställa sig frågan “Vad gör den här klassen?”. Blir det ett långt svar innebär
+det att klassen troligtvis kan delas upp. Rekommendationen är att en klass endast har ett ansvarsområde eller
+i alla fall så få som möjligt.</p>
+<br>
+
+<p>Koppling är ett värde på hur beroende en klass är av andra klasser. Om vi har en klass som använder andra
+klasser så har den ett beroende till dessa klasser som man kan kalla afferent coupling (utgående). Om vi har
+en klass som används av andra klasser så finns det också ett beroende som man kan kalla efferent coupling
+(inkommande). Löst kopplade klasser är att föredra. Det kan betyda att klassen står för sig själv eller i
+alla fall inte beror på så många andra klasser. Har en klass många beroenden kan det bli svårare i
+utvecklingsprocessen då det kan krävas ändringar i klasser som den är beroende av. Det kan alltså bli svårare
+att upptäcka fel i koden.</p>
+<br>
+
+<p>Min åsikt är bra värden på 4C är en del av “snygg kod”, även om det också finns andra aspekter. Med bra
+värden menar jag att man har 100% kodtäckning, låg komplexitet och klasser som är små, väl sammanhållna och
+inte har många kopplingar. En kod kan också vara “snygg” även fast några värden kanske anses lite höga. Andra
+aspekter att väga in är att det finns stora projekt som är komplexa och även om man försöker dela upp i flera
+klasser och metoder så får man lite sämre mätvärden. Gör man flera klasser är risken istället att det blir så
+att klasserna får många beroenden till varandra och att man får sämre värden på kopplingen. En annan del av
+“snygg kod” är att koden ska kommenteras, i alla fall innan varje klass och metod.</p>
+<br>
+
+<p>Jag tycker helt klart att det finns ett begrepp “snygg kod”. Har man helt okommenterad kod med metoder
+innehållande 30-40 if-satser/loopar och ingen testning av koden alls skulle jag aldrig mer anlita den
+programmeraren. Struntar man helt i att tänka på 4C eller använda verktyg för kodkvalitet skriver man inte
+snygg kod.</p>
+<br>
+
+{% endblock %}

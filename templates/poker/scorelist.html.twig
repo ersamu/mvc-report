@@ -1,0 +1,12 @@
+{% extends "poker/base.html.twig" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+
+<p>Här kan du se hur många poäng du totalt tagit.</p>
+
+<td>{{ score.getScore() }}</a></td>
+
+{% endblock %}

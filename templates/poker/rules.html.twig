@@ -1,0 +1,60 @@
+{% extends "poker/base.html.twig" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+
+<p>Pokerpatiens är ett klassiskt spel och här lär du dig reglerna!</p>
+<br>
+
+<p>Från start ser du ett 5x5 rutnät och ett slumpat kort. Du ska nu placera ut kortet på en ledig ruta.
+Fram till att alla 25 rutor är klädda av ett kort kommer ett nytt kort i taget slumpas fram och du placerar
+ut det på en ledig ruta. Du kan inte byta plats på kortet efter att du placerat det på en ruta. Försök att
+tänka taktiskt för att samla så många poäng som möjligt. Du har 10 händer, 5 vertikala och 5 horisontella.
+Poäng räknas både på vertikala och horisontella händer. Det innebär att det finns 10 händer som kan ge dig
+poäng. Du kan få poäng för en regel på fler än 1 hand.</p>
+<br>
+
+<p>Poäng delas ut enligt följande (amerikanska poängsystemet):</p>
+<br>
+
+<p>Ett par = <b>2</b> poäng</p>
+<p>Två kort av samma valör och tre kort av andra och olika valörer.</p>
+<br>
+
+<p>Två par = <b>5</b> poäng</p>
+<p>Två kort av samma valör, två kort av en annan valör och ett kort av en tredje valör.</p>
+<br>
+
+<p>Tretal = <b>10</b> poäng</p>
+<p>Tre kort av samma valör och två kort med andra, men inte likadana valörer.</p>
+<br>
+
+<p>Stege = <b>15</b> poäng</p>
+<p>Fem kort med valörerna i följd. Ess kan räknas antingen som 1 eller 14.</p>
+<br>
+
+<p>Färg = <b>20</b> poäng</p>
+<p>Fem kort i samma färg, men inte i följd.</p>
+<br>
+
+<p>Kåk = <b>25</b> poäng</p>
+<p>Tre kort av samma valör och två kort av annan valör.</p>
+<br>
+
+<p>Fyrtal = <b>50</b> poäng</p>
+<p>Fyra kort av samma valör och ett kort av annan valör.</p>
+<br>
+
+<p>Liten färgstege (Straight flush) = <b>75</b> poäng</p>
+<p>Fem kort med valörerna i följd och har samma färg. Ess räknas här som 1, annars har du stor färgstege.</p>
+<br>
+
+<p>Stor färgstege (Royal flush) = <b>100</b> poäng</p>
+<p>Fem kort med de högsta valörerna (10, knäkt, dam, kung och ess) och har samma färg. Ess räknas här som 14.</p>
+<br>
+
+<p>Om handen inte omfattas av någon av reglerna ovan ger handen 0 poäng.</p>
+
+{% endblock %}

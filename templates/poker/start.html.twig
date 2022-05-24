@@ -1,0 +1,18 @@
+{% extends "poker/base.html.twig" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+
+<ul>
+    <li><a href="{{ url("poker-start") }}">Startsida pokerspel</a></li>
+    <li><a href="{{ path("poker-play") }}">Spela pokerspel</a></li>
+    <li><a href="{{ path("poker-rules") }}">Regler</a></li>
+    <li><a href="{{ path("poker-about") }}">Om</a></li>
+    <li><a href="{{ path("cleancode") }}">Cleancode</a></li>
+    <li><a href="{{ path("scorelist") }}">Poänglista</a></li>
+    <li><a href="{{ path("reset-database") }}">Återställ databasen</a></li>
+<ul>
+
+{% endblock %}
