@@ -229,5 +229,95 @@
 <p>TIL för detta kursmoment är att jag lärt mig mer om testning för min kod.</p>
 
 <h2>Kmom10</h2>
+<h3>Krav 1-3</h3>
+<div class="reporttext">
+    <p>Jag valde att göra en variant på poker, pokerpatiens som projekt. Det skulle bli en utmaning att koda
+    spelet och redan på förhand såg jag en del potientiella problem. Som till exempel vad som ska hända när man
+    trycker på en box. Jag hade med fördel kunnat använda JavaScript, men eftersom jag ville använda det jag lärt
+    mig i kursen använde jag istället GET och POST. Varje box som inte har ett kort blir en input-form som går
+    att klicka på. Jag ger varje box ett ID som value och döljer det med CSS font-size: 0. Även om spelaren inte
+    ser det finns det ett ID på varje box. Sedan kopplar jag ihop ID på den valda boxen med det senaste dragna
+    kortet så att kortet läggs på boxen, som då inte längre går att klicka på.</p>
+</div>
+
+<div class="reporttext">
+    <p>Det behövs en del ytterligare kod för att det ska fungera bra. Exempelvis ska det inte slumpas fram ett
+    nytt kort när alla boxar har ett kort. Poängräkningen var ett annat tänkbart problem. Där gjorde jag så att
+    poängräkningen sker först när alla boxar har ett kort. Det skulle inte heller gå att ladda om sidan och då
+    räkna poängen igen, krävdes en bool-variabel för att undvika det. Om en hand ger poäng för Royal flush
+    behöver inte de andra regel-metoderna anropas. Jag gjorde därför en metod där regel-metoderna anropas i
+    ordning efter högst poäng och sedan returneras poängen för den regeln. Ger inte handen någon poäng blir
+    det 0 som returneras. Eftersom det är tio möjliga utfall blev denna metod för komplex och fick delas upp
+    i två metoder.</p>
+</div>
+
+<div class="reporttext">
+    <p>Jag har klasser för Card, Deck, Board och Hand. Jag skulle kunna göra ännu fler klasser men är i
+    slutändan ändå hyfsad nöjd med resultatet. Pokerpatiens är ett komplext spel, och det blir mycket
+    if-satser, “om handen innehåller detta, annars om…”. Därav ganska dåliga värden på komplexiteten.
+    Jag la mycket fokus på att koden skulle vara testbar, även om det är omöjligt att få tid att testa alla
+    tusentals kombinationer på händer. Varje regel-metod täcks av ett testfall där jag förväntar mig att
+    poäng ges för en hand med specificerade värden. Tyvärr blev mina kontrollerklasser för spelet för stora,
+    men det är en avvägning jag gjort. Det behöver användas session, hantera vilket typ av POST man får in
+    från användaren och lägga till poäng i databasen och då blir det en del kod. Hade jag delat upp kontrollern
+    kanske inte spelaren skulle kunna fuska och jag såg en risk att koden inte skulle bli så enkel att testa.</p>
+</div>
+
+<div class="reporttext">
+    <p>En databas används för att spara poäng efter varje omgång och nollställer poängen vid reset. När det
+    gäller att satsa låtsaspengar fick jag hitta på en egen lösning. Det blev att spelaren innan varje omgång
+    tvingas satsa minst 50 “kronor” på att man får över 200 i poäng. Tanken är att man vinner x antal summan om
+    man får över 200 poäng, annars förlorar man satsade pengar.</p>
+</div>
+
+<p>Under projektet har jag kört phpcs, phpmd och phpstan (nivå 5) kontinuerligt och åtgärdat en del varningar.
+Andra varningar har jag stängt av, det gäller främst de autogenererade filerna i src/Entity och src/Repository.
+Det anmärktes bland annat på att id är ett för kort variabelnamn, att id bara returneras och att bool används
+som argument till metoder.</p>
+
+<h3>Krav 4</h3>
+<p>Jag gjorde ett av de optionella kraven, att skriva en artikel på temat “snygg och god kod”. Som grund använde
+jag texten från uppgiften i kmom06 och dykte mer djupt ner i begreppen 4C. Jag diskuterar mer generellt om
+begreppen och ger mer generella exempel på hur man kan tolka mätvärdena. Det finns alltid “specialfall” som gör
+att man kan få något dåligt mätvärde men koden kan ändå vara “snygg och god”. Det finns även specialfall där
+mätvärden kan luras. Till exempel 100% kodtäckning men testerna är så pass “enkla” att innehållet aldrig testas
+på djupet. Jag avslutar med min personliga åsikt.</p>
+
+<h3>Allmänt om projektet</h3>
+<div class="reporttext">
+    <p>Projektet som helhet är ganska bra, även om jag valde en projektidé som blev på gränsen till för
+    omfattande. Räddningen blev lite att jag gjorde klasser och tester för kort och kortlek tidigare i kursen
+    och nu kunde bygga vidare på den koden. Jag valde en ganska komplex projektidé, alltså att poker är ganska
+    komplext. Det kändes som jag fokuserade mer på att få spelet att fungera än att skriva snygg kod. I slutändan
+    är jag dock ganska nöjd både med spelet och snygg kod även om mätvärden för komplexitet inte är så bra.</p>
+</div>
+
+<p>Mitt projekt är helt klart rimligt för kursen, man fick möjlighet också att själv välja projektidé. Det gav
+möjligheten att sätta lite som egen nivå och göra något man tycker om. Däremot blev jag lite fundersam på
+hållbarhet som projekt. Det kändes som att den projektidén går lite utanför kursen och använder databasen på
+ett sätt som vi tidigare inte gjort i kursen. I ett projekt tycker jag inte man ska behöva lära sig mycket nytt
+(förutom för betyg A) utan använda det man lärt sig i kursmomenten.</p>
+
+<h3>Om kursen</h3>
+<p>Kursen som helhet tycker jag är ganska bra, betyg 8/10. Det finns en del i upplägget som eventuellt kan
+förändras. Några förslag:
+<br>
+
+*kmom02 blev för omfattande. Bra av Mikael att minska efter våra (studenternas) önskemål.
+<br>
+
+*Kortspelet - visa hur man kan få till kort med CSS. Den uppgiften bör fokusera på programmering av spelet och
+inte design av korten. Eller ge oss mer tid och se CSS för korten som en större del av uppgiften än den är idag.
+<br>
+
+*kmom05 kan utvecklas genom att visa hur man kan använda databasen mer. Tänk att det ska vara en hjälp inför projektet.
+<br>
+
+*kmom06 blev lite märkligt när man skulle göra ändringar enligt mätvärden som redan var ganska bra. Kanske att
+man bara ska skriva om förbättringar man kan göra och se det som optionellt att implementera förbättringarna.
+<br>
+
+*Pseudokod och flödesschema behöver förklaras bättre med mer exempel kopplade till kod och inte bara generella
+exempel om det ska vara kvar i kursen.</p>
 
 {% endblock %}
