@@ -10,10 +10,13 @@ use App\Entity\Book;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Repository\BookRepository;
 
+/**
+ * @SuppressWarnings(PHPMD.ShortVariable)
+ */
 class BookController extends AbstractController
 {
     /**
-     * 
+     *
      * @Route("/book", name="book_start")
      */
     public function bookIndex(): Response

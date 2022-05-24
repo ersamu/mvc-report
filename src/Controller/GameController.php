@@ -58,7 +58,8 @@ class GameController extends AbstractController
             if ($game->checkWinDirect()) {
                 $this->addFlash("info", "Banken vann!");
                 $session->set("turn", "Computer");
-            } else {
+            /** @phpstan-ignore-next-line */
+            } elseif (!$game->checkWinDirect()) {
                 $session->set("turn", "Player");
             };
         } elseif ($stop) {

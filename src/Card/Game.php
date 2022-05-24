@@ -46,10 +46,11 @@ class Game
         } elseif ($cardValue == "A") {
             if ($this->getPlayerSum() < 8) {
                 $this->playerSum += 14;
+            /** @phpstan-ignore-next-line */
             } elseif ($this->getPlayerSum() >= 8) {
                 $this->playerSum += 1;
             }
-        } else {
+        } elseif (gettype($cardValue) === "integer") {
             $this->playerSum += $cardValue;
         }
     }
@@ -65,10 +66,11 @@ class Game
         } elseif ($cardValue == "A") {
             if ($this->getComputerSum() < 8) {
                 $this->computerSum += 14;
+            /** @phpstan-ignore-next-line */
             } elseif ($this->getComputerSum() >= 8) {
                 $this->computerSum += 1;
             }
-        } else {
+        } elseif (gettype($cardValue) === "integer") {
             $this->computerSum += $cardValue;
         }
     }
