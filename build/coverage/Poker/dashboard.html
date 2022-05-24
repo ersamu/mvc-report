@@ -2,7 +2,7 @@
 <html lang="en">
  <head>
   <meta charset="UTF-8">
-  <title>Dashboard for C:\Users\Asus\dbwebb-kurser\mvc\me\report\src\Repository</title>
+  <title>Dashboard for C:\Users\Asus\dbwebb-kurser\mvc\me\report\src\Poker</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../_css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="../_css/nv.d3.min.css" rel="stylesheet" type="text/css">
@@ -17,7 +17,7 @@
       <nav aria-label="breadcrumb">
        <ol class="breadcrumb">
          <li class="breadcrumb-item"><a href="../index.html">C:\Users\Asus\dbwebb-kurser\mvc\me\report\src</a></li>
-         <li class="breadcrumb-item"><a href="index.html">Repository</a></li>
+         <li class="breadcrumb-item"><a href="index.html">Poker</a></li>
          <li class="breadcrumb-item active">(Dashboard)</li>
 
        </ol>
@@ -58,8 +58,6 @@
         </tr>
        </thead>
        <tbody>
-       <tr><td><a href="BookRepository.php.html#20">App\Repository\BookRepository</a></td><td class="text-right">0%</td></tr>
-       <tr><td><a href="TotalScoreRepository.php.html#20">App\Repository\TotalScoreRepository</a></td><td class="text-right">0%</td></tr>
 
        </tbody>
       </table>
@@ -76,8 +74,6 @@
         </tr>
        </thead>
        <tbody>
-       <tr><td><a href="BookRepository.php.html#20">App\Repository\BookRepository</a></td><td class="text-right">30</td></tr>
-       <tr><td><a href="TotalScoreRepository.php.html#20">App\Repository\TotalScoreRepository</a></td><td class="text-right">30</td></tr>
 
        </tbody>
       </table>
@@ -115,12 +111,8 @@
         </tr>
        </thead>
        <tbody>
-       <tr><td><a href="BookRepository.php.html#22"><abbr title="App\Repository\BookRepository::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
-       <tr><td><a href="BookRepository.php.html#31"><abbr title="App\Repository\BookRepository::add">add</abbr></a></td><td class="text-right">0%</td></tr>
-       <tr><td><a href="BookRepository.php.html#43"><abbr title="App\Repository\BookRepository::remove">remove</abbr></a></td><td class="text-right">0%</td></tr>
-       <tr><td><a href="TotalScoreRepository.php.html#22"><abbr title="App\Repository\TotalScoreRepository::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
-       <tr><td><a href="TotalScoreRepository.php.html#31"><abbr title="App\Repository\TotalScoreRepository::add">add</abbr></a></td><td class="text-right">0%</td></tr>
-       <tr><td><a href="TotalScoreRepository.php.html#43"><abbr title="App\Repository\TotalScoreRepository::remove">remove</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Deck.php.html#66"><abbr title="App\Poker\Deck::shuffleCards">shuffleCards</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Board.php.html#149"><abbr title="App\Poker\Board::checkWin">checkWin</abbr></a></td><td class="text-right">66%</td></tr>
 
        </tbody>
       </table>
@@ -137,10 +129,7 @@
         </tr>
        </thead>
        <tbody>
-       <tr><td><a href="BookRepository.php.html#31"><abbr title="App\Repository\BookRepository::add">add</abbr></a></td><td class="text-right">6</td></tr>
-       <tr><td><a href="BookRepository.php.html#43"><abbr title="App\Repository\BookRepository::remove">remove</abbr></a></td><td class="text-right">6</td></tr>
-       <tr><td><a href="TotalScoreRepository.php.html#31"><abbr title="App\Repository\TotalScoreRepository::add">add</abbr></a></td><td class="text-right">6</td></tr>
-       <tr><td><a href="TotalScoreRepository.php.html#43"><abbr title="App\Repository\TotalScoreRepository::remove">remove</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Board.php.html#149"><abbr title="App\Poker\Board::checkWin">checkWin</abbr></a></td><td class="text-right">2</td></tr>
 
        </tbody>
       </table>
@@ -169,7 +158,7 @@ $(document).ready(function() {
       .yAxis.tickFormat(d3.format('d'));
 
     d3.select('#classCoverageDistribution svg')
-      .datum(getCoverageDistributionData([2,0,0,0,0,0,0,0,0,0,0,0], "Class Coverage"))
+      .datum(getCoverageDistributionData([0,0,0,0,0,0,0,0,0,0,3,1], "Class Coverage"))
       .transition().duration(500).call(chart);
 
     nv.utils.windowResize(chart.update);
@@ -187,7 +176,7 @@ $(document).ready(function() {
       .yAxis.tickFormat(d3.format('d'));
 
     d3.select('#methodCoverageDistribution svg')
-      .datum(getCoverageDistributionData([6,0,0,0,0,0,0,0,0,0,0,0], "Method Coverage"))
+      .datum(getCoverageDistributionData([1,0,0,0,0,0,0,1,0,1,0,34], "Method Coverage"))
       .transition().duration(500).call(chart);
 
     nv.utils.windowResize(chart.update);
@@ -237,7 +226,7 @@ $(document).ready(function() {
     chart.yAxis.axisLabel('Cyclomatic Complexity');
 
     d3.select('#classComplexity svg')
-      .datum(getComplexityData([[0,5,"<a href=\"BookRepository.php.html#20\">App\\Repository\\BookRepository<\/a>"],[0,5,"<a href=\"TotalScoreRepository.php.html#20\">App\\Repository\\TotalScoreRepository<\/a>"]], 'Class Complexity'))
+      .datum(getComplexityData([[97.95918367346938,13,"<a href=\"Board.php.html#11\">App\\Poker\\Board<\/a>"],[100,5,"<a href=\"Card.php.html#8\">App\\Poker\\Card<\/a>"],[96.29629629629629,15,"<a href=\"Deck.php.html#10\">App\\Poker\\Deck<\/a>"],[98.64864864864865,46,"<a href=\"Hand.php.html#10\">App\\Poker\\Hand<\/a>"]], 'Class Complexity'))
       .transition()
       .duration(500)
       .call(chart);
@@ -261,7 +250,7 @@ $(document).ready(function() {
     chart.yAxis.axisLabel('Method Complexity');
 
     d3.select('#methodComplexity svg')
-      .datum(getComplexityData([[0,1,"<a href=\"BookRepository.php.html#22\">App\\Repository\\BookRepository::__construct<\/a>"],[0,2,"<a href=\"BookRepository.php.html#31\">App\\Repository\\BookRepository::add<\/a>"],[0,2,"<a href=\"BookRepository.php.html#43\">App\\Repository\\BookRepository::remove<\/a>"],[0,1,"<a href=\"TotalScoreRepository.php.html#22\">App\\Repository\\TotalScoreRepository::__construct<\/a>"],[0,2,"<a href=\"TotalScoreRepository.php.html#31\">App\\Repository\\TotalScoreRepository::add<\/a>"],[0,2,"<a href=\"TotalScoreRepository.php.html#43\">App\\Repository\\TotalScoreRepository::remove<\/a>"]], 'Method Complexity'))
+      .datum(getComplexityData([[100,1,"<a href=\"Board.php.html#33\">App\\Poker\\Board::__construct<\/a>"],[100,2,"<a href=\"Board.php.html#45\">App\\Poker\\Board::setBoard<\/a>"],[100,1,"<a href=\"Board.php.html#55\">App\\Poker\\Board::getBoard<\/a>"],[100,1,"<a href=\"Board.php.html#66\">App\\Poker\\Board::addCard<\/a>"],[100,1,"<a href=\"Board.php.html#75\">App\\Poker\\Board::getSelectedBoxes<\/a>"],[100,1,"<a href=\"Board.php.html#83\">App\\Poker\\Board::countSelectedBoxes<\/a>"],[100,1,"<a href=\"Board.php.html#94\">App\\Poker\\Board::setHands<\/a>"],[100,1,"<a href=\"Board.php.html#123\">App\\Poker\\Board::setScore<\/a>"],[100,1,"<a href=\"Board.php.html#140\">App\\Poker\\Board::getScore<\/a>"],[66.66666666666666,2,"<a href=\"Board.php.html#149\">App\\Poker\\Board::checkWin<\/a>"],[100,1,"<a href=\"Board.php.html#160\">App\\Poker\\Board::roundIsEnd<\/a>"],[100,1,"<a href=\"Card.php.html#22\">App\\Poker\\Card::__construct<\/a>"],[100,1,"<a href=\"Card.php.html#33\">App\\Poker\\Card::getCard<\/a>"],[100,1,"<a href=\"Card.php.html#41\">App\\Poker\\Card::getSuit<\/a>"],[100,1,"<a href=\"Card.php.html#49\">App\\Poker\\Card::getValueNr<\/a>"],[100,1,"<a href=\"Card.php.html#57\">App\\Poker\\Card::getColor<\/a>"],[100,1,"<a href=\"Deck.php.html#23\">App\\Poker\\Deck::__construct<\/a>"],[100,8,"<a href=\"Deck.php.html#34\">App\\Poker\\Deck::addCards<\/a>"],[100,1,"<a href=\"Deck.php.html#58\">App\\Poker\\Deck::getCards<\/a>"],[0,1,"<a href=\"Deck.php.html#66\">App\\Poker\\Deck::shuffleCards<\/a>"],[100,1,"<a href=\"Deck.php.html#75\">App\\Poker\\Deck::drawCard<\/a>"],[100,2,"<a href=\"Deck.php.html#85\">App\\Poker\\Deck::lastDrawnCard<\/a>"],[100,1,"<a href=\"Deck.php.html#96\">App\\Poker\\Deck::nrOfDrawnCards<\/a>"],[100,1,"<a href=\"Hand.php.html#22\">App\\Poker\\Hand::__construct<\/a>"],[100,2,"<a href=\"Hand.php.html#32\">App\\Poker\\Hand::setHandValues<\/a>"],[100,1,"<a href=\"Hand.php.html#42\">App\\Poker\\Hand::setValueCounter<\/a>"],[100,6,"<a href=\"Hand.php.html#55\">App\\Poker\\Hand::checkRules<\/a>"],[100,5,"<a href=\"Hand.php.html#81\">App\\Poker\\Hand::lowerRules<\/a>"],[100,3,"<a href=\"Hand.php.html#98\">App\\Poker\\Hand::onePair<\/a>"],[100,4,"<a href=\"Hand.php.html#111\">App\\Poker\\Hand::twoPairs<\/a>"],[100,3,"<a href=\"Hand.php.html#130\">App\\Poker\\Hand::threeOfAKind<\/a>"],[83.33333333333334,4,"<a href=\"Hand.php.html#143\">App\\Poker\\Hand::straight<\/a>"],[100,3,"<a href=\"Hand.php.html#159\">App\\Poker\\Hand::flushRule<\/a>"],[100,5,"<a href=\"Hand.php.html#175\">App\\Poker\\Hand::fullHouse<\/a>"],[100,3,"<a href=\"Hand.php.html#193\">App\\Poker\\Hand::fourOfAKind<\/a>"],[100,3,"<a href=\"Hand.php.html#206\">App\\Poker\\Hand::straightFlush<\/a>"],[100,3,"<a href=\"Hand.php.html#217\">App\\Poker\\Hand::royalFlush<\/a>"]], 'Method Complexity'))
       .transition()
       .duration(500)
       .call(chart);
